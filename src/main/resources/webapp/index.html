@@ -79,19 +79,15 @@
                     <i class="glyphicon glyphicon-volume-up"></i>
                 </button>
             </div>
-            <!--<br/>-->
-            <!--<div>-->
-                <!--<table>-->
-                    <!--<tr><td>From:</td><td><input id="fromAccount"></input></td></tr>-->
-                    <!--<tr><td>To:</td><td><input id="toAccount"></input></td></tr>-->
-                    <!--<tr><td>Amount:</td><td><input id="amount"></input></td></tr>-->
-                <!--</table>-->
-            <!--</div>-->
+
 
             <br/>
             <div ng-if="transferShown">
                 Transfer:
-                <pre>{{transfer|json}}</pre>
+                <ul ng-repeat='entity in transfer'>
+                    <li>{{entity.name}}: {{entity.value[0].entity}}</li>
+                </ul>
+                <!--<pre>{{transfer|json}}</pre>-->
             </div>
             <div  ng-if="showmeShown">
                 Show Me:

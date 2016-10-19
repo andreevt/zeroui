@@ -30,26 +30,26 @@ var inputText = 'https://api.projectoxford.ai/luis/v1/application?id=fd8fe0e7-22
           $http.get(inputText)
               .success(function (data) {
 
-                  alert('test');
                   $scope.result  = data;
-
                   var result = data.intents[0];
 
                   if(result.intent == 'Transfer'){
                      $scope.helpShown = false;
                      $scope.transferShown = true;
                      $scope.showmeShown = false;
-                     $scope.transfer = result.actions;
+                     $scope.transfer = result.actions[0].parameters;
+
+
                   } else if(result.intent == 'Show Me'){
-                                      $scope.helpShown = false;
-                                      $scope.transferShown = false;
-                                      $scope.showmeShown = true;
+                     $scope.helpShown = false;
+                     $scope.transferShown = false;
+                     $scope.showmeShown = true;
 
                   } else if(result.intent == 'Help'){
                     $scope.helpShown = true;
                     $scope.transferShown = false;
                     $scope.showmeShown = false;
-                    $scope.help = "Transfer $100 from Sara To Cherry.";
+                    $scope.help = "Tips: Transfer $100 from Sara To Cherry.";
 
                   } else if(result.intent == 'How Much'){
 
@@ -57,9 +57,6 @@ var inputText = 'https://api.projectoxford.ai/luis/v1/application?id=fd8fe0e7-22
                     alert('error intent!');
                   }
 
-//            document.getElementById('fromAccount').value='cherry';
-//            document.getElementById('toAccount').value='bob';
-//            document.getElementById('amount').value='$100';
 
 
               }).error(function (response) {
