@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="zeroui" lang="en">
 <head>
     <script src="framework/angular-1.5.8/angular.js"></script>
     <script src="framework/angular-1.5.8/angular-animate.js"></script>
@@ -67,15 +67,18 @@
         <!--<hr/>-->
         <!--<h4>WONDER BAR</h4>-->
         <!--<input type="text" value="Click me!" uib-popover="I appeared on focus! Click away and I'll vanish..."-->
-               <!--popover-trigger="'focus'" class="form-control">-->
+        <!--popover-trigger="'focus'" class="form-control">-->
 
         <!--<hr/>-->
-        <form id="labnol" method="get" action="https://www.google.com/search">
+        <ng-form id="labnol" ng-controller="voice-converter">
             <div class="speech">
-                <input type="text" name="q" id="transcript" placeholder="Speak" />
-                <img onclick="startDictation()" src="//i.imgur.com/cHidSVu.gif" />
+                <input type="text" name="q" id="transcript" placeholder="Speak"/>
+                <!--<img ng-click="submit()" src="//i.imgur.com/cHidSVu.gif" />-->
+                <button class="btn" type="submit" id="submit" ng-click="submit()">
+                    <img src="//i.imgur.com/cHidSVu.gif"/>
+                </button>
             </div>
-        </form>
+        </ng-form>
     </div>
 </div><!-- /.container -->
 
