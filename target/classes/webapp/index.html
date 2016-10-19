@@ -72,21 +72,37 @@
         <!--<hr/>-->
         <ng-form id="labnol" ng-controller="voice-converter">
             <div class="speech">
-                <input type="text" name="q" id="transcript" placeholder="Speak"/>
+                <input type="text" name="q" id="transcript" placeholder="Speak" my-enter="restCall()"/>
                 <!--<img ng-click="submit()" src="//i.imgur.com/cHidSVu.gif" />-->
                 <button class="btn" type="submit" id="submit" ng-click="submit()">
                     <!--<img src="//i.imgur.com/cHidSVu.gif" height="10" width="10">-->
                     <i class="glyphicon glyphicon-volume-up"></i>
                 </button>
             </div>
-            <div>
-                <table>
-                    <tr><td>From:</td><td><input id="fromAccount"></input></td></tr>
-                    <tr><td>To:</td><td><input id="toAccount"></input></td></tr>
-                    <tr><td>Amount:</td><td><input id="amount"></input></td></tr>
-                </table>
+
+
+            <br/>
+            <div ng-if="transferShown">
+                Transfer:
+                <ul ng-repeat='entity in transfer'>
+                    <li>{{entity.name}}: {{entity.value[0].entity}}</li>
+                </ul>
+                <!--<pre>{{transfer|json}}</pre>-->
             </div>
-            <div><pre>{{result|json}}</pre></div>
+            <div  ng-if="showmeShown">
+                Show Me:
+                <pre>{{showme|json}}</pre>
+            </div>
+            <div ng-if="helpShown">
+                Help:
+                <pre>{{help|json}}</pre>
+            </div>
+
+            <br/>
+            <div>
+                For Debug Only:
+                <pre>{{result|json}}</pre>
+            </div>
         </ng-form>
     </div>
 </div><!-- /.container -->
