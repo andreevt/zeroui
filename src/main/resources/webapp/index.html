@@ -79,14 +79,32 @@
                     <i class="glyphicon glyphicon-volume-up"></i>
                 </button>
             </div>
-            <div>
-                <table>
-                    <tr><td>From:</td><td><input id="fromAccount"></input></td></tr>
-                    <tr><td>To:</td><td><input id="toAccount"></input></td></tr>
-                    <tr><td>Amount:</td><td><input id="amount"></input></td></tr>
-                </table>
+            <!--<br/>-->
+            <!--<div>-->
+                <!--<table>-->
+                    <!--<tr><td>From:</td><td><input id="fromAccount"></input></td></tr>-->
+                    <!--<tr><td>To:</td><td><input id="toAccount"></input></td></tr>-->
+                    <!--<tr><td>Amount:</td><td><input id="amount"></input></td></tr>-->
+                <!--</table>-->
+            <!--</div>-->
+
+            <br/>
+            <div ng-if="transferShown">
+                Transfer:
+                <pre>{{transfer|json}}</pre>
             </div>
+            <div  ng-if="showmeShown">
+                Show Me:
+                <pre>{{showme|json}}</pre>
+            </div>
+            <div ng-if="helpShown">
+                Help:
+                <pre>{{help|json}}</pre>
+            </div>
+
+            <br/>
             <div>
+                For Debug Only:
                 <pre>{{result|json}}</pre>
             </div>
         </ng-form>
