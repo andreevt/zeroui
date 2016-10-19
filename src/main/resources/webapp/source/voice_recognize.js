@@ -40,6 +40,7 @@ angular.module('zeroui').controller('voice-converter', ['$scope', '$http',
                                 $scope.helpShown = false;
                                 $scope.transferShown = true;
                                 $scope.showmeShown = false;
+                                $scope.howmuchShown=false;
                                 $scope.transfer = result.actions[0].parameters;
 
 
@@ -47,14 +48,20 @@ angular.module('zeroui').controller('voice-converter', ['$scope', '$http',
                                 $scope.helpShown = false;
                                 $scope.transferShown = false;
                                 $scope.showmeShown = true;
-
+                                $scope.howmuchShown=false;
                             } else if (result.intent == 'Help') {
                                 $scope.helpShown = true;
                                 $scope.transferShown = false;
                                 $scope.showmeShown = false;
-                                $scope.help = "Tips: Transfer $100 from Sara To Cherry.";
+                                $scope.howmuchShown=false;
+                                $scope.help = "Tips: Transfer $100 from Sara To Cherry. / How much did I spend on shopping last week? / Show me payment to Cherry yesterday.";
 
                             } else if (result.intent == 'How Much') {
+                                 $scope.howmuchShown=true;
+                                 $scope.helpShown = false;
+                                 $scope.transferShown=false;
+                                 $scope.showmeShown=false;
+                                 $scope.howmuch = result.actions[0].parameters;
 
                             } else {
                                 alert('error intent!');

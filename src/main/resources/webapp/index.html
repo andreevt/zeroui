@@ -93,6 +93,13 @@
                 Show Me:
                 <pre>{{showme|json}}</pre>
             </div>
+            <div ng-if="howmuchShown">
+                How Much:
+                <ul ng-repeat='item in howmuch'>
+                    <li>{{item.value[0].entity}}</li>
+                </ul>
+                <pre>{{howmuch|json}}</pre>
+            </div>
             <div ng-if="helpShown">
                 Help:
                 <pre>{{help|json}}</pre>
