@@ -64,14 +64,13 @@ angular.module('zeroui').controller('voice-converter', ['$scope', '$http',
                                 $scope.showmeShown = true;
                                 $scope.howmuchShown=false;
                                 $scope.showme = data.entities;
-
+                                $scope.showmeAmt = '$832.50';
 
                             } else if (result.intent == 'Help') {
                                 $scope.helpShown = true;
                                 $scope.transferShown = false;
                                 $scope.showmeShown = false;
                                 $scope.howmuchShown=false;
-                                $scope.help = "Tips: Transfer $100 from Sara To Cherry. / How much did I spend on shopping last week? / Show me payment to Cherry yesterday.";
 
                             } else if (result.intent == 'How Much') {
                                  $scope.howmuchShown=true;
@@ -79,6 +78,7 @@ angular.module('zeroui').controller('voice-converter', ['$scope', '$http',
                                  $scope.transferShown=false;
                                  $scope.showmeShown=false;
                                  $scope.howmuch = result.actions[0].parameters;
+                                 $scope.howmuchAmt = '$23.50';
 
                             } else {
                                 alert('error intent!');

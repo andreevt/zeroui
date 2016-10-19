@@ -84,11 +84,12 @@
 
             <br/>
             <div ng-if="transferShown" uib-collapse="isCollapsed">
-                <label>Transfer:</label>
+                <h3>Transfer:</h3>
                 <ul ng-repeat='entity in transfer'>
                     <li>{{entity.name}}: {{entity.value[0].entity}}</li>
                 </ul>
-                <ul><button class="btn btn-primary" ng-click="confirm()">Confirm</button>&nbsp;&nbsp;<button class="btn btn-primary" ng-click="cancel()">Cancel</button></ul>
+                <br/>
+                <ul><button class="btn btn-primary">Confirm</button>&nbsp;&nbsp;<button class="btn btn-primary" ng-click="cancel()">Cancel</button></ul>
                 <!--<pre>{{transfer|json}}</pre>-->
             </div>
             <div ng-if="transferDone" uib-collapse="isCollapsed">
@@ -96,29 +97,47 @@
 
             </div>
             <div  ng-if="showmeShown" uib-collapse="isCollapsed">
-                Show Me:
+                <h3>Show Me: </h3>
                 <ul ng-repeat='detail in showme'>
                     <li>{{detail.type}}: {{detail.entity}}</li>
                 </ul>
-                <pre>{{showme|json}}</pre>
+                <br/>
+                <h3>{{showmeAmt}}</h3>
+                <!--<pre>{{showme|json}}</pre>-->
+                <ul>
+                    <button class="btn btn-primary" ng-click="cancel()">Reset</button>
+                </ul>
+
             </div>
             <div ng-if="howmuchShown" uib-collapse="isCollapsed">
-                How Much:
+                <h3>How Much on: </h3>
                 <ul ng-repeat='item in howmuch'>
                     <li>{{item.value[0].entity}}</li>
                 </ul>
+                <br/>
+                <h3>{{howmuchAmt}}</h3>
                 <!--<pre>{{howmuch|json}}</pre>-->
+                <ul>
+                    <button class="btn btn-primary" ng-click="cancel()">Reset</button>
+                </ul>
+
             </div>
-            <div ng-if="helpShown" uib-collapse="isCollapsed">
-                Help:
-                <pre>{{help|json}}</pre>
+            <div ng-if="helpShown" class='well' uib-collapse="isCollapsed">
+                <h3>Wonderful Tips:</h3>
+                <ul>
+                    <li>Transfer $100 from Sara To Cherry.</li>
+                    <li>How much did I spend on shopping last week</li>
+                    <li>Show me payment to Cherry yesterday.</li>
+                </ul>
+
+
             </div>
 
             <br/>
-            <div>
-                For Debug Only:
-                <pre>{{result|json}}</pre>
-            </div>
+            <!--<div>-->
+            <!--For Debug Only:-->
+            <!--<pre>{{result|json}}</pre>-->
+            <!--</div>-->
         </ng-form>
     </div>
 </div><!-- /.container -->
