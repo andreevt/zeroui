@@ -1,5 +1,17 @@
 angular.module('zeroui', ['ui.bootstrap'])
+angular.module('zeroui').directive('myEnter', function () {
+    return function (scope, element, attrs) {
+        element.bind("keydown keypress", function (event) {
+            if(event.which === 13) {
+                scope.$apply(function (){
+                    scope.$eval(attrs.myEnter);
+                });
 
+                event.preventDefault();
+            }
+        });
+    };
+});
 angular.module('zeroui').controller('voice-converter', ['$scope', '$http',
 
 
@@ -10,7 +22,8 @@ angular.module('zeroui').controller('voice-converter', ['$scope', '$http',
         $scope.showmeShown = false;
 
         $scope.submit = function () {
-
+            $scope.isCollapsed = true;
+            document.getElementById('transcript').value='';
             if (window.hasOwnProperty('webkitSpeechRecognition')) {
 
                 var recognition = new webkitSpeechRecognition();
@@ -30,9 +43,10 @@ angular.module('zeroui').controller('voice-converter', ['$scope', '$http',
                 };
                 $scope.restCall=function(){
                     var inputText = 'https://api.projectoxford.ai/luis/v1/application?id=fd8fe0e7-2216-41ad-a509-c811c48baef3&subscription-key=fee7cf84355e468fac27b39957a0f8d6&q=' + document.getElementById('transcript').value;
+
                     $http.get(inputText)
                         .success(function (data) {
-
+                            $scope.isCollapsed = false;
                             $scope.result = data;
                             var result = data.intents[0];
 
@@ -70,7 +84,6 @@ angular.module('zeroui').controller('voice-converter', ['$scope', '$http',
                                 alert('error intent!');
                             }
 
-
                         }).error(function (response) {
                         // called asynchronously if an error occurs
                         // or server returns response with an error status.
@@ -84,16 +97,3 @@ angular.module('zeroui').controller('voice-converter', ['$scope', '$http',
         }
     }
 ]);
-angular.module('zeroui').directive('myEnter', function () {
-    return function (scope, element, attrs) {
-        element.bind("keydown keypress", function (event) {
-            if(event.which === 13) {
-                scope.$apply(function (){
-                    scope.$eval(attrs.myEnter);
-                });
-
-                event.preventDefault();
-            }
-        });
-    };
-});

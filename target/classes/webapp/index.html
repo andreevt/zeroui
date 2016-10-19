@@ -59,39 +59,40 @@
 <div class="container">
 
     <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a
-            mostly barebones HTML document.</p>
+       <p>Type 'help' if you don't know how to start</p>
     </div>
     <div>
-        <!--<hr/>-->
-        <!--<h4>WONDER BAR</h4>-->
-        <!--<input type="text" value="Click me!" uib-popover="I appeared on focus! Click away and I'll vanish..."-->
-        <!--popover-trigger="'focus'" class="form-control">-->
-
-        <!--<hr/>-->
         <ng-form id="labnol" ng-controller="voice-converter">
             <div class="speech">
                 <input type="text" name="q" id="transcript" placeholder="Speak" my-enter="restCall()"/>
-                <!--<img ng-click="submit()" src="//i.imgur.com/cHidSVu.gif" />-->
                 <button class="btn" type="submit" id="submit" ng-click="submit()">
-                    <!--<img src="//i.imgur.com/cHidSVu.gif" height="10" width="10">-->
                     <i class="glyphicon glyphicon-volume-up"></i>
                 </button>
             </div>
 
 
             <br/>
-            <div ng-if="transferShown">
-                Transfer:
+            <div ng-if="transferShown" uib-collapse="isCollapsed">
+                <label>Transfer:</label>
                 <ul ng-repeat='entity in transfer'>
                     <li>{{entity.name}}: {{entity.value[0].entity}}</li>
                 </ul>
+                <ul><button>Confirm</button><button>Cancel</button></ul>
                 <!--<pre>{{transfer|json}}</pre>-->
             </div>
             <div  ng-if="showmeShown">
                 Show Me:
+                <ul ng-repeat='detail in showme'>
+                    <li>{{detail.type}}: {{detail.entity}}</li>
+                </ul>
                 <pre>{{showme|json}}</pre>
+            </div>
+            <div ng-if="howmuchShown">
+                How Much:
+                <ul ng-repeat='item in howmuch'>
+                    <li>{{item.value[0].entity}}</li>
+                </ul>
+                <!--<pre>{{howmuch|json}}</pre>-->
             </div>
             <div ng-if="helpShown">
                 Help:
