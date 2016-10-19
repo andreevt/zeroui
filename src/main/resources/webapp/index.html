@@ -73,9 +73,7 @@
         <ng-form id="labnol" ng-controller="voice-converter">
             <div class="speech">
                 <input type="text" name="q" id="transcript" placeholder="Speak" my-enter="restCall()"/>
-                <!--<img ng-click="submit()" src="//i.imgur.com/cHidSVu.gif" />-->
                 <button class="btn" type="submit" id="submit" ng-click="submit()">
-                    <!--<img src="//i.imgur.com/cHidSVu.gif" height="10" width="10">-->
                     <i class="glyphicon glyphicon-volume-up"></i>
                 </button>
             </div>
@@ -91,6 +89,9 @@
             </div>
             <div  ng-if="showmeShown">
                 Show Me:
+                <ul ng-repeat='detail in showme'>
+                    <li>{{detail.type}}: {{detail.entity}}</li>
+                </ul>
                 <pre>{{showme|json}}</pre>
             </div>
             <div ng-if="howmuchShown">
@@ -98,7 +99,7 @@
                 <ul ng-repeat='item in howmuch'>
                     <li>{{item.value[0].entity}}</li>
                 </ul>
-                <pre>{{howmuch|json}}</pre>
+                <!--<pre>{{howmuch|json}}</pre>-->
             </div>
             <div ng-if="helpShown">
                 Help:

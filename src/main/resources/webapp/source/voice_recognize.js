@@ -49,6 +49,9 @@ angular.module('zeroui').controller('voice-converter', ['$scope', '$http',
                                 $scope.transferShown = false;
                                 $scope.showmeShown = true;
                                 $scope.howmuchShown=false;
+                                $scope.showme = data.entities;
+
+
                             } else if (result.intent == 'Help') {
                                 $scope.helpShown = true;
                                 $scope.transferShown = false;
