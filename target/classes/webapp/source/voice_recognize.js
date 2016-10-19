@@ -24,15 +24,16 @@ angular.module('zeroui').controller('voice-converter',['$scope','$http',
 
 var inputText = 'https://api.projectoxford.ai/luis/v1/application?id=fd8fe0e7-2216-41ad-a509-c811c48baef3&subscription-key=fee7cf84355e468fac27b39957a0f8d6&q='+document.getElementById('transcript').value;
           $http.get(inputText)
-          .success(function successCallback(data) {
+          .success(function(data) {
 
-            alert(data);
+            alert('test');
+            $scope.result = data;
             document.getElementById('fromAccount').value='cherry';
             document.getElementById('toAccount').value='bob';
             document.getElementById('amount').value='$100';
 
 
-          }).error( function errorCallback(response) {
+          }).error( function(response) {
             // called asynchronously if an error occurs
             // or server returns response with an error status.
           });
