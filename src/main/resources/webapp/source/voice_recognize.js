@@ -95,6 +95,10 @@ angular.module('zeroui').controller('voice-converter', ['$scope', '$http',
                 $scope.cancel=function(){
                     document.getElementById('transcript').value='';
                     $scope.isCollapsed = true;
+                };
+                $scope.confirm=function(){
+                    $scope.transferShown=false;
+                    $scope.transferDone=true;
                 }
 
             }

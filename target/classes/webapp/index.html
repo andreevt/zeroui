@@ -5,9 +5,10 @@
     <script src="framework/angular-1.5.8/angular-animate.js"></script>
     <script src="framework/bootstrap-3.3.7-dist/ui-bootstrap-tpls-2.2.0.min.js"></script>
     <script src="framework/angular-1.5.8/angular.js"></script>
-    <
     <script src="framework/jquery/jquery-3.1.1.min.js"></script>
     <script src="source/voice_recognize.js"></script>
+    <script src="source/alert.js"></script>
+    <script src="https://webaudiodemos.appspot.com/AudioRecorder/js/recorderjs/recorder.js"></script>
 
     <link rel="stylesheet" href="framework/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 
@@ -72,6 +73,14 @@
                 </button>
             </div>
 
+            <!--            <div ng-controller="AlertDemoCtrl">
+                            <script type="text/ng-template" id="alert.html">
+                                <div ng-transclude></div>
+                            </script>
+
+                            <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.msg}}</div>
+                            <button type="button" class='btn btn-default' ng-click="addAlert()">Add Alert</button>
+                        </div>-->
 
             <br/>
             <div ng-if="transferShown" uib-collapse="isCollapsed">
@@ -79,8 +88,12 @@
                 <ul ng-repeat='entity in transfer'>
                     <li>{{entity.name}}: {{entity.value[0].entity}}</li>
                 </ul>
-                <ul><button class="btn btn-primary">Confirm</button>&nbsp;&nbsp;<button class="btn btn-primary" ng-click="cancel()">Cancel</button></ul>
+                <ul><button class="btn btn-primary" ng-click="confirm()">Confirm</button>&nbsp;&nbsp;<button class="btn btn-primary" ng-click="cancel()">Cancel</button></ul>
                 <!--<pre>{{transfer|json}}</pre>-->
+            </div>
+            <div ng-if="transferDone" uib-collapse="isCollapsed">
+                <label>Transferred successfully!</label>
+
             </div>
             <div  ng-if="showmeShown" uib-collapse="isCollapsed">
                 Show Me:
@@ -117,6 +130,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="framework/bootstrap-3.3.7-dist/ui-bootstrap-tpls-2.2.0.min.js"></script>
-
+<script src="https://webaudiodemos.appspot.com/AudioRecorder/js/recorderjs/recorder.js"></script>
 </body>
 </html>
