@@ -88,7 +88,7 @@
                 <ul ng-repeat='entity in transfer'>
                     <li>{{entity.name}}: {{entity.value[0].entity}}</li>
                 </ul>
-                <ul><button class="btn btn-primary">Confirm </button><button>Cancel</button></ul>
+                <ul><button class="btn btn-primary">Confirm</button>&nbsp;&nbsp;<button class="btn btn-primary" ng-click="cancel()">Cancel</button></ul>
                 <!--<pre>{{transfer|json}}</pre>-->
             </div>
             <div  ng-if="showmeShown" uib-collapse="isCollapsed">

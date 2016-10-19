@@ -59,9 +59,11 @@
 <div class="container">
 
     <div class="starter-template">
-       <p>Type 'help' if you don't know how to start</p>
+        <h1>Wonder Bar</h1>
+        <p class="lead">Wonder wonder wonder wonderful~~~~</p>
     </div>
-    <div>
+    <div class="center">
+
         <ng-form id="labnol" ng-controller="voice-converter">
             <div class="speech">
                 <input type="text" name="q" id="transcript" placeholder="Speak" my-enter="restCall()"/>
@@ -77,24 +79,24 @@
                 <ul ng-repeat='entity in transfer'>
                     <li>{{entity.name}}: {{entity.value[0].entity}}</li>
                 </ul>
-                <ul><button>Confirm</button><button>Cancel</button></ul>
+                <ul><button class="btn btn-primary">Confirm</button>&nbsp;&nbsp;<button class="btn btn-primary" ng-click="cancel()">Cancel</button></ul>
                 <!--<pre>{{transfer|json}}</pre>-->
             </div>
-            <div  ng-if="showmeShown">
+            <div  ng-if="showmeShown" uib-collapse="isCollapsed">
                 Show Me:
                 <ul ng-repeat='detail in showme'>
                     <li>{{detail.type}}: {{detail.entity}}</li>
                 </ul>
                 <pre>{{showme|json}}</pre>
             </div>
-            <div ng-if="howmuchShown">
+            <div ng-if="howmuchShown" uib-collapse="isCollapsed">
                 How Much:
                 <ul ng-repeat='item in howmuch'>
                     <li>{{item.value[0].entity}}</li>
                 </ul>
                 <!--<pre>{{howmuch|json}}</pre>-->
             </div>
-            <div ng-if="helpShown">
+            <div ng-if="helpShown" uib-collapse="isCollapsed">
                 Help:
                 <pre>{{help|json}}</pre>
             </div>

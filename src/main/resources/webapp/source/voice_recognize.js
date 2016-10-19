@@ -88,9 +88,13 @@ angular.module('zeroui').controller('voice-converter', ['$scope', '$http',
                         // called asynchronously if an error occurs
                         // or server returns response with an error status.
                     });
-                }
+                };
                 recognition.onerror = function (e) {
                     recognition.stop();
+                };
+                $scope.cancel=function(){
+                    document.getElementById('transcript').value='';
+                    $scope.isCollapsed = true;
                 }
 
             }
