@@ -1,0 +1,13 @@
+People     Date		Category		Amt
+Cherry	Today	Shopping		$100
+Cherry 	Yesterday Shopping	$19.99
+Cherry	Last Week Shopping	$387.5
+Sara 	Yesterday	 Shopping	$21.98
+Sara		Last Month	Shopping	$2343.50
+
+
+
+From	To		Date 	Amt
+Sara		Cherry	Today	$342
+Sara		Cherry	Yesterday	$2.34
+Cherry	Terry	Last week$324
