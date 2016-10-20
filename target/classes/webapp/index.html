@@ -34,35 +34,9 @@
 
 <body>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Project name</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div><!--/.nav-collapse -->
-
-    </div>
-</nav>
 
 <div class="container">
 
-    <div class="starter-template">
-        <h1>Wonder Bar</h1>
-        <p class="lead">Wonder wonder wonder wonderful~~~~</p>
-    </div>
     <div class="center">
 
         <ng-form id="labnol" ng-controller="voice-converter">
@@ -87,39 +61,45 @@
                 <h3>Transfer:</h3>
                 <ul ng-repeat='entity in transfer'>
                     <li>{{entity.name}}: {{entity.value[0].entity}}</li>
-                </ul><br/>
-                <ul><button class="btn btn-primary">Confirm</button>&nbsp;&nbsp;<button class="btn btn-primary" ng-click="cancel()">Cancel</button></ul>
+                </ul>
+                <ul><button class="btn btn-primary" ng-click="confirm()">Confirm</button>&nbsp;&nbsp;<button class="btn btn-primary" ng-click="cancel()">Cancel</button></ul>
                 <!--<pre>{{transfer|json}}</pre>-->
             </div>
             <div ng-if="transferDone" uib-collapse="isCollapsed">
                 <label>Transferred successfully!</label>
 
             </div>
-            <div  ng-if="showmeShown" uib-collapse="isCollapsed">
+            <div class="box-overlay" ng-if="showmeShown" uib-collapse="isCollapsed">
                 <h3>Show Me: </h3>
                 <ul ng-repeat='detail in showme'>
                     <li>{{detail.type}}: {{detail.entity}}</li>
-                </ul><br/>
+                </ul>
+                <br/>
                 <h3>{{showmeAmt}}</h3>
                 <!--<pre>{{showme|json}}</pre>-->
-                <ul><button class="btn btn-primary" ng-click="cancel()">Reset</button></ul>
+                <ul>
+                    <button class="btn btn-primary" ng-click="cancel()">Reset</button>
+                </ul>
 
             </div>
             <div ng-if="howmuchShown" uib-collapse="isCollapsed">
                 <h3>How Much on: </h3>
                 <ul ng-repeat='item in howmuch'>
                     <li>{{item.value[0].entity}}</li>
-                </ul><br/>
+                </ul>
+                <br/>
                 <h3>{{howmuchAmt}}</h3>
                 <!--<pre>{{howmuch|json}}</pre>-->
-                <ul><button class="btn btn-primary" ng-click="cancel()">Reset</button></ul>
+                <ul>
+                    <button class="btn btn-primary" ng-click="cancel()">Reset</button>
+                </ul>
 
             </div>
             <div ng-if="helpShown" class='well' uib-collapse="isCollapsed">
                 <h3>Wonderful Tips:</h3>
                 <ul>
-                   <li>Transfer $100 from Sara To Cherry.</li>
-                    <li>How much did I spend on shopping last week </li>
+                    <li>Transfer $100 from Sara To Cherry.</li>
+                    <li>How much did I spend on shopping last week</li>
                     <li>Show me payment to Cherry yesterday.</li>
                 </ul>
 
@@ -128,8 +108,8 @@
 
             <br/>
             <!--<div>-->
-                <!--For Debug Only:-->
-                <!--<pre>{{result|json}}</pre>-->
+            <!--For Debug Only:-->
+            <!--<pre>{{result|json}}</pre>-->
             <!--</div>-->
         </ng-form>
     </div>
