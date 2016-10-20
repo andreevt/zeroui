@@ -70,7 +70,7 @@
                 <label>Transferred successfully!</label>
 
             </div>
-            <div  ng-if="showmeShown" uib-collapse="isCollapsed">
+            <div class="box-overlay" ng-if="showmeShown" uib-collapse="isCollapsed">
                 <h3>Show Me: </h3>
                 <ul ng-repeat='detail in showme'>
                     <li>{{detail.type}}: {{detail.entity}}</li>

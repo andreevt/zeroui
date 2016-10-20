@@ -16,6 +16,15 @@ body {
     height: 600px;
 }
 
+.box-overlay {
+    background-color: white;
+    border: 1px solid #DDD;
+    border-radius: 10px;
+    width: 25%;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
 .speech {
    width: 300px;
    padding-top: 50px;
